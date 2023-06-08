@@ -15,12 +15,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o0&e2ygh-!(6oe#v5igc%5#ncnw@ziup=hv320jcrdz1tk0(d*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = True
 development = os.environ.get('DEVELOPMENT', False)
 
-ALLOWED_HOSTS = ['localhost', '8000-acegaz-rattiesrags-e0apun0y46q.ws-eu98.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-acegaz-rattiesrags-e0apun0y46q.ws-eu98.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-acegaz-rattiesrags-e0apun0y46q.ws-eu99.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-acegaz-rattiesrags-e0apun0y46q.ws-eu99.gitpod.io']
 
 
 # Application definition
@@ -33,6 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'home',
 ]
 
@@ -114,6 +118,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
